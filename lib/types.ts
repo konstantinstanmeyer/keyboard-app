@@ -1,4 +1,4 @@
 export type WordEntry = {
-  word: string;
-  definition: string;
+    word: string;
+    definition: string;
 };
