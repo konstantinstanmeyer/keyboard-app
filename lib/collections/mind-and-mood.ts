@@ -1,0 +1,25 @@
+import type { WordEntry } from '../types';
+
+export const mindAndMood: WordEntry[] = [
+  { word: 'cacoethes', definition: 'an irresistible urge to do something unwise' },
+  { word: 'eucatastrophe', definition: 'a sudden turn toward joy' },
+  { word: 'frisson', definition: 'a brief thrill of excitement' },
+  { word: 'lachrymose', definition: 'given to weeping; mournful' },
+  { word: 'oneiric', definition: 'of or relating to dreams' },
+  { word: 'orphic', definition: 'mysterious and entrancing' },
+  { word: 'philocalist', definition: 'a lover of beauty' },
+  { word: 'pulchritude', definition: 'great physical beauty' },
+  { word: 'quiddity', definition: 'the essential nature of a thing' },
+  { word: 'rubatosis', definition: 'the unsettling awareness of your heartbeat' },
+  { word: 'saudade', definition: 'a wistful longing for what is gone' },
+  { word: 'sonder', definition: 'the sense that strangers have full lives' },
+  { word: 'sprezzatura', definition: 'the art of studied nonchalance' },
+  { word: 'tarantism', definition: 'an uncontrollable urge to dance' },
+  { word: 'velleity', definition: 'a wish too faint to act upon' },
+  { word: 'wabbit', definition: 'weary and worn out' },
+  { word: 'fernweh', definition: 'an ache for distant places' },
+  { word: 'numinous', definition: 'filled with a sense of the divine' },
+  { word: 'ataraxia', definition: 'a serene freedom from distress' },
+  { word: 'eudaemonia', definition: 'a flourishing, well-lived life' },
+  { word: 'cryptaesthesia', definition: 'perception by hidden means' },
+];

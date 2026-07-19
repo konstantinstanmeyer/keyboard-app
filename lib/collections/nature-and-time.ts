@@ -1,0 +1,27 @@
+import type { WordEntry } from '../types';
+
+export const natureAndTime: WordEntry[] = [
+  { word: 'apricity', definition: 'the warmth of the sun in winter' },
+  { word: 'crepuscular', definition: 'of or resembling twilight' },
+  { word: 'gloaming', definition: 'the dusk of evening' },
+  { word: 'halcyon', definition: 'calm, peaceful, and golden' },
+  { word: 'nudiustertian', definition: 'of the day before yesterday' },
+  { word: 'obnubilate', definition: 'to becloud or obscure' },
+  { word: 'petrichor', definition: 'the scent of rain on dry earth' },
+  { word: 'psithurism', definition: 'the whisper of wind in leaves' },
+  { word: 'quondam', definition: 'former; onetime' },
+  { word: 'redolent', definition: 'fragrant; strongly evocative' },
+  { word: 'sempiternal', definition: 'everlasting and unchanging' },
+  { word: 'sillage', definition: 'the trail a scent leaves behind' },
+  { word: 'susurrus', definition: 'a soft murmuring or rustling' },
+  { word: 'umbriferous', definition: 'casting shade' },
+  { word: 'zephyr', definition: 'a gentle west wind' },
+  { word: 'brontide', definition: 'a low rumble like distant thunder' },
+  { word: 'dwale', definition: 'a stupefying draught; nightshade' },
+  { word: 'estival', definition: 'belonging to summer' },
+  { word: 'hebdomadal', definition: 'happening weekly' },
+  { word: 'nemophilist', definition: 'one who haunts the woods' },
+  { word: 'ombrifuge', definition: 'a shelter from the rain' },
+  { word: 'noctivagant', definition: 'wandering by night' },
+  { word: 'fuliginous', definition: 'sooty or smoke-darkened' },
+];
