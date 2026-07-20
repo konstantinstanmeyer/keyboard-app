@@ -327,7 +327,7 @@ export default function Page() {
           animation: rar-blink 1.05s ease-in-out infinite;
         }
         .rar-caret::before, .rar-caret::after{
-          content:''; position:absolute; left:1; right:0; height:2px;
+          content:''; position:absolute; right:0;;
         }
         .rar-caret::before{ top:0 }
         .rar-caret::after{ bottom:0 }
@@ -350,7 +350,7 @@ export default function Page() {
         >
           Rarissima
         </h1>
-        <div className="mt-3 flex items-center justify-center gap-3" style={{ color: MUTED }}>
+        <div className="mt-3 flex items-center justify-center gap-3 muted">
           <span className="h-px w-10" />
           <span className="text-[13px] italic">
             forgotten words, one keystroke at a time
@@ -377,16 +377,14 @@ export default function Page() {
         <span className="hidden sm:block h-4 w-px" />
         <button
           onClick={() => setShowDefs((s) => !s)}
-          className="tracking-wide transition-colors"
-          style={{ color: showDefs ? INK : MUTED }}
+          className={`${showDefs ? "ink" : "muted"} tracking-wide transition-colors`}
         >
           {showDefs ? 'glosses shown' : 'glosses hidden'}
         </button>
         <span className="hidden sm:block h-4 w-px" />
         <button
           onClick={() => void newTest()}
-          className="tracking-wide transition-colors"
-          style={{ color: '#7c8a78' }}
+          className="tracking-wide transition-colors text-[#7c8a78]"
         >
           ↻ begin anew
         </button>
@@ -415,7 +413,7 @@ export default function Page() {
                 <span className="text-[34px] leading-none" style={{ color: ACCENT }}>
                   {status === 'running' ? secs : duration}
                 </span>
-                <span className="text-[11px] uppercase tracking-[0.3em]" style={{ color: MUTED }}>
+                <span className="text-[11px] uppercase tracking-[0.3em] muted">
                   {status === 'running' ? 'seconds left' : 'second trial'}
                 </span>
               </div>
@@ -425,7 +423,7 @@ export default function Page() {
                     {Math.round(liveWpm)} wpm
                   </span>
                 ) : (
-                  <span className="text-[13px] italic" style={{ color: MUTED }}>
+                  <span className="text-[13px] italic muted">
                     {loading ? 'gathering words' : 'type to start the clock'}
                   </span>
                 )}
@@ -464,11 +462,9 @@ export default function Page() {
                   <div
                     ref={caretRef}
                     data-hidden="true"
-                    className="rar-caret absolute left-0 top-0 will-change-transform -translate-x-"
+                    className={`caret-transform w-6 h-7 rar-caret absolute left-0 top-0 will-change-transform -translate-x-`}
                     style={{
-                      width: CAP_W,
-                      height: CARET_H,
-                      transform: `translate(0px,${CARET_TOP}px)`,
+                      transform: `translate(-20px,${CARET_TOP}px)`,
                     }}
                   >
                     <img className="absolute h-full scale-y-125" src="/caret.svg" alt="" />
@@ -478,8 +474,7 @@ export default function Page() {
               </div>
               {loading ? (
                 <div
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(228,232,221,.55)' }}
+                  className="absolute inset-0 flex items-center justify-center bg-[rgba(228,232,221,.55)]"
                 >
                   <span className="text-[12px] uppercase tracking-[0.3em]" style={{ color: '#5f6d5b' }}>
                     gathering rare words
@@ -489,10 +484,9 @@ export default function Page() {
                 !focused && (
                   <button
                     onClick={() => inputRef.current?.focus()}
-                    className="absolute inset-0 flex items-center justify-center backdrop-blur-[3px]"
-                    style={{ backgroundColor: 'rgba(228,232,221,.4)' }}
+                    className="absolute inset-0 flex items-center justify-center backdrop-blur-[3px] bg-[rgba(228,232,221,.4)]"
                   >
-                    <span className="text-[13px] uppercase tracking-[0.3em]" style={{ color: '#5f6d5b' }}>
+                    <span className="text-[13px] uppercase tracking-[0.3em] text-[#5f6d5b]">
                       click to resume
                     </span>
                   </button>
@@ -518,7 +512,7 @@ export default function Page() {
           tabIndex={-1}
         />
       </section>
-      <footer className="mt-auto py-8 text-[11px] tracking-[0.25em] uppercase" style={{ color: '#a2ad9d' }}>
+      <footer className="mt-auto py-8 text-[11px] tracking-[0.25em] uppercase text-[#a2ad9d]">
         tab — restart
       </footer>
     </main>
@@ -528,10 +522,10 @@ export default function Page() {
 function ResultCard({ result, onAgain }: { result: Result; onAgain: () => void }) {
   const stat = (label: string, value: string) => (
     <div className="text-center">
-      <div className="text-[22px]" style={{ color: INK }}>
+      <div className="text-[22px] ink">
         {value}
       </div>
-      <div className="mt-1 text-[10px] uppercase tracking-[0.28em]" style={{ color: MUTED }}>
+      <div className="mt-1 text-[10px] uppercase tracking-[0.28em] muted">
         {label}
       </div>
     </div>
@@ -539,19 +533,19 @@ function ResultCard({ result, onAgain }: { result: Result; onAgain: () => void }
 
   return (
     <div className="rar-rise text-center">
-      <div className="text-[11px] uppercase tracking-[0.4em]" style={{ color: ACCENT }}>
+      <div className="text-[11px] uppercase tracking-[0.4em] accent" >
         specimen record
       </div>
-      <div className="mt-3 leading-none" style={{ fontSize: 96, color: INK }}>
+      <div className="mt-3 leading-none ink text-[96px]">
         {Math.round(result.wpm)}
       </div>
-      <div className="mt-1 text-[12px] uppercase tracking-[0.3em]" style={{ color: '#5f6d5b' }}>
+      <div className="mt-1 text-[12px] uppercase tracking-[0.3em] text-[#5f6d5b]">
         words per minute
       </div>
 
       <div className="mx-auto my-7 flex items-center justify-center gap-3">
         <span className="h-px w-16" />
-        <span style={{ color: ACCENT }}>&#10087;</span>
+        <span className="accent">&#10087;</span>
         <span className="h-px w-16" />
       </div>
 
@@ -564,8 +558,7 @@ function ResultCard({ result, onAgain }: { result: Result; onAgain: () => void }
 
       <button
         onClick={onAgain}
-        className="mt-9 px-5 py-2 text-[12px] uppercase tracking-[0.3em] border transition-colors"
-        style={{ color: ACCENT, borderColor: 'rgba(47,111,99,.4)' }}
+        className="border-[rgba(47,111,99,.4)] accent mt-9 px-5 py-2 text-[12px] uppercase tracking-[0.3em] border transition-colors"
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = ACCENT;
           e.currentTarget.style.color = '#f0f2ea';

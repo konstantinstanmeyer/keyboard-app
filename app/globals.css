@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+:root {
+    --color-ink: #24322b;
+    --color-muted: #9aa693;
+    --color-rule: #b7c0aa;
+    --color-error: #b5623a;
+    --color-accent: #2f6f63;
+}
+
+.ink {
+    color: var(--color-ink);
+}
+
+.muted {
+    color: var(--color-muted);
+}
+
+.rule {
+    color: var(--color-rule);
+}
+
+.error {
+    color: var(--color-error);
+}
+
+.accent {
+    color: var(--color-accent);
+}
+
 html,
 body {
   height: 100%;
