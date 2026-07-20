@@ -41,6 +41,18 @@ export default function Words() {
   const stateRef = useRef<State>({ words, history, input, wordIndex});
   stateRef.current = { words, history, input, wordIndex };
 
+  const durationRef = useRef(duration);
+  durationRef.current = duration;
+
+  const startRef = useRef(0);
+  const typedRef = useRef(0);
+  const errorRef = useRef(0);
+  const fetchingMoreRef = useRef(false);
+  const blinkTimer = useRef<number | undefined>(undefined);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+
   // useEffect(() => {
   //   (async() => {
   //     const temp = await fetchWords(10);
