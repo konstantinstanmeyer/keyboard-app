@@ -12,3 +12,10 @@ export type Result = {
   time: number;
   typed: number;
 };
+
+export type State = { 
+    words: string[]; 
+    history: string[]; 
+    input: string; 
+    wordIndex: number;
+};

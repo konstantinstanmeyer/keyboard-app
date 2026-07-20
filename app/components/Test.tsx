@@ -1,7 +1,7 @@
 "use client"
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { Word } from "./Word";
-import { Result } from "@/lib/words/types";
+import { Result, State } from "@/lib/words/types";
 
 type Entry = { w: string; d: string };
 
@@ -21,7 +21,7 @@ async function fetchWords(count:number): Promise<Entry[]> {
 }
 
 export default function Words() {
-  const [words, setWords] = useState<Entry[]>([])
+  // const [words, setWords] = useState<Entry[]>([])
   const [duration, setDuration] = useState<number>(30);
   const [showDefs, setShowDefs] = useState(true);
   const [items, setItems] = useState<Entry[]>([]);
@@ -36,29 +36,34 @@ export default function Words() {
   const [error, setError] = useState(false);
   const [mode, setMode] = useState<"testing" | "sandbox">("testing");
 
-  useEffect(() => {
-    (async() => {
-      const temp = await fetchWords(10);
-      if(temp){
-        setWords(temp)
-      }
-    })();
-  }, [])
+  const words = useMemo(() => items.map((i) => i.w), [items]);
 
-  const rendered = useMemo(
-    () =>
-      words.map((it, i) => (
-        <Word
-          key={i}
-          target={it.w}
-        />
-      )),
-    [words],
-  );
+  const stateRef = useRef<State>({ words, history, input, wordIndex});
+  stateRef.current = { words, history, input, wordIndex };
+
+  // useEffect(() => {
+  //   (async() => {
+  //     const temp = await fetchWords(10);
+  //     if(temp){
+  //       setWords(temp)
+  //     }
+  //   })();
+  // }, [])
+
+  // const rendered = useMemo(
+  //   () =>
+  //     words.map((it, i) => (
+  //       <Word
+  //         key={i}
+  //         target={it.w}
+  //       />
+  //     )),
+  //   [words],
+  // );
 
   return (
     <div>
-      {rendered}
+      {/* {rendered} */}
     </div>
   )
 } 
