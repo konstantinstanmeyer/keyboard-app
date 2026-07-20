@@ -1,10 +1,10 @@
-
+import Words from "./components/Words";
 
 export default function Page() {
 
   return (
     <main>
-      hello world!
+      <Words />
     </main>
   );
 }
