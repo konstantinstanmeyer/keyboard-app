@@ -1,10 +1,10 @@
-import Words from "./components/Words";
+import Test from "./components/Test";
 
 export default function Page() {
 
   return (
     <main>
-      <Words />
+      <Test />
     </main>
   );
 }
