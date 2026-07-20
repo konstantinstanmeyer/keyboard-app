@@ -29,7 +29,37 @@ async function fetchWords(count:number): Promise<Entry[]> {
   ));
 }
 
-export default function Words() {
+function grade(s: State) {
+  let correct = 0,
+    incorrect = 0,
+    extra = 0;
+  const { words, history, input, wordIndex } = s;
+  for (let i = 0; i < wordIndex; i++) {
+    const t = history[i] ?? '';
+    const w = words[i] ?? '';
+    const n = Math.max(t.length, w.length);
+    for (let j = 0; j < n; j++) {
+      const tc = t[j];
+      const wc = w[j];
+      if (tc == null) incorrect++;
+      else if (wc == null) extra++;
+      else if (tc === wc) correct++;
+      else incorrect++;
+    }
+    correct++; // the trailing space, once committed
+  }
+  const w = words[wordIndex] ?? '';
+  for (let j = 0; j < input.length; j++) {
+    const tc = input[j];
+    const wc = w[j];
+    if (wc == null) extra++;
+    else if (tc === wc) correct++;
+    else incorrect++;
+  }
+  return { correct, incorrect, extra };
+}
+
+export default function Page() {
   // const [words, setWords] = useState<Entry[]>([])
   const [duration, setDuration] = useState<number>(30);
   const [showDefs, setShowDefs] = useState(true);
