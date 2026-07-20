@@ -33,6 +33,10 @@ body {
   height: 100%;
 }
 
+img {
+    overflow: visible !important;
+}
+
 body {
   background-color: #e4e8dd;
   font-family: var(--font-sans), system-ui, sans-serif;

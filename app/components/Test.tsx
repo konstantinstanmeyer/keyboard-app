@@ -447,14 +447,14 @@ export default function Page() {
               </div>
             )}
             <div className="relative cursor-text" onClick={() => inputRef.current?.focus()}>
-              <div className="relative overflow-y-hidden" style={{ height: LINE * VISIBLE }}>
+              <div className="relative overflow-y-hidden pl-5!" style={{ height: LINE * VISIBLE }}>
                 <div
                   ref={innerRef}
                   className="absolute left-0 right-0 top-0 will-change-transform"
                   style={{
                     transform: 'translateY(0px)',
                     transition: 'transform .18s cubic-bezier(.2,.7,.2,1)',
-                  
+                    marginLeft: 20,
                     fontSize: 27,
                     lineHeight: `${LINE}px`,
                   }}
@@ -462,7 +462,7 @@ export default function Page() {
                   <div
                     ref={caretRef}
                     data-hidden="true"
-                    className={`caret-transform w-6 h-7 rar-caret absolute left-0 top-0 will-change-transform -translate-x-`}
+                    className={` caret-transform w-6 h-7 rar-caret absolute left-0 top-0 will-change-transform transition-all duration-40`}
                     style={{
                       transform: `translate(-20px,${CARET_TOP}px)`,
                     }}
