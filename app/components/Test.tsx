@@ -340,8 +340,6 @@ export default function Page() {
           *{ transition:none !important }
         }
       `}</style>
-
-      {/* masthead */}
       <header className="pt-14 pb-8 text-center">
         <div className="text-[11px] tracking-[0.42em] uppercase" style={{ color: ACCENT }}>
           a typing copybook of
@@ -360,8 +358,6 @@ export default function Page() {
           <span className="h-px w-10" />
         </div>
       </header>
-
-      {/* controls */}
       <nav className="mb-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[13px]">
         <div className="flex items-center gap-1">
           {DURATIONS.map((d) => (
@@ -414,7 +410,6 @@ export default function Page() {
           </div>
         ) : (
           <>
-            {/* live readout */}
             <div className="mb-4 flex items-end justify-between">
               <div className="flex items-baseline gap-2">
                 <span className="text-[34px] leading-none" style={{ color: ACCENT }}>
@@ -436,8 +431,6 @@ export default function Page() {
                 )}
               </div>
             </div>
-
-            {/* specimen gloss for the current word */}
             {showDefs && (
               <div className="mb-3 h-6 truncate">
                 {cur && (
@@ -455,8 +448,6 @@ export default function Page() {
                 )}
               </div>
             )}
-
-            {/* the sheet */}
             <div className="relative cursor-text" onClick={() => inputRef.current?.focus()}>
               <div className="relative overflow-y-hidden" style={{ height: LINE * VISIBLE }}>
                 <div
@@ -485,8 +476,6 @@ export default function Page() {
                   {rendered}
                 </div>
               </div>
-
-              {/* loading / focus veils */}
               {loading ? (
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -512,8 +501,6 @@ export default function Page() {
             </div>
           </>
         )}
-
-        {/* the capture field — visually hidden */}
         <input
           ref={inputRef}
           onKeyDown={onKeyDown}
@@ -531,7 +518,6 @@ export default function Page() {
           tabIndex={-1}
         />
       </section>
-
       <footer className="mt-auto py-8 text-[11px] tracking-[0.25em] uppercase" style={{ color: '#a2ad9d' }}>
         tab — restart
       </footer>
