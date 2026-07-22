@@ -348,7 +348,7 @@ export default function Page() {
           className="mt-2 text-[40px] leading-none tracking-[0.16em] uppercase"
           style={{ fontWeight: 500 }}
         >
-          Rarissima
+          LINOTYPE
         </h1>
         <div className="mt-3 flex items-center justify-center gap-3 muted">
           <span className="h-px w-10" />
