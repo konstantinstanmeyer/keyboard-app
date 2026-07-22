@@ -313,12 +313,7 @@ export default function Page() {
 
   return (
     <main
-      className="min-h-screen w-full flex flex-col items-center"
-      style={{
-        color: INK,
-        backgroundImage:
-          'radial-gradient(120% 80% at 50% -10%, #edf0e6 0%, #e4e8dd 45%, #dbe0d2 100%)',
-      }}
+      className="min-h-screen w-full flex flex-col items-center ink"
     >
       <style>{`
         @keyframes rar-blink { 0%{opacity:1} 50%{opacity:0} 100%{opacity:1} }
@@ -340,35 +335,13 @@ export default function Page() {
           *{ transition:none !important }
         }
       `}</style>
-      <header className="pt-14 pb-8 text-center">
-        <div className="text-[11px] tracking-[0.42em] uppercase" style={{ color: ACCENT }}>
-          a typing copybook of
-        </div>
-        <h1
-          className="mt-2 text-[40px] leading-none tracking-[0.16em] uppercase"
-          style={{ fontWeight: 500 }}
-        >
-          LINOTYPE
-        </h1>
-        <div className="mt-3 flex items-center justify-center gap-3 muted">
-          <span className="h-px w-10" />
-          <span className="text-[13px] italic">
-            forgotten words, one keystroke at a time
-          </span>
-          <span className="h-px w-10" />
-        </div>
-      </header>
       <nav className="mb-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[13px]">
         <div className="flex items-center gap-1">
           {DURATIONS.map((d) => (
             <button
               key={d}
               onClick={() => void newTest(d)}
-              className="px-2.5 py-1 tracking-wide transition-colors border-b"
-              style={{
-                color: duration === d ? ACCENT : '#7c8a78',
-                borderColor: duration === d ? ACCENT : 'transparent',
-              }}
+              className={`px-2.5 py-1 tracking-wide transition-colors border-b ${duration === d ? "border-[#2f6f63]" : 'border-transparent'} ${duration === d ? "accent" : '#7c8a78'}`}
             >
               {d}s
             </button>
