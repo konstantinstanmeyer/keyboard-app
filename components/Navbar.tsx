@@ -1,3 +1,7 @@
+"use client"
+
+import SignIn from "./SignIn"
+
 export default function Navbar(){
     return(
         <header className="pt-14 pb-8 text-center">
@@ -16,6 +20,7 @@ export default function Navbar(){
                 </span>
                 <span className="h-px w-10" />
             </div>
+            <SignIn />
         </header>
     )
 }
