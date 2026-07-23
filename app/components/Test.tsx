@@ -2,7 +2,7 @@
 import { useEffect, useState, useMemo, useRef, useCallback, useLayoutEffect } from "react";
 import { Word } from "./Word";
 import { Result, State } from "@/lib/words/types";
-import { MUTED,  INK, ERROR, ACCENT } from "@/lib/words/colors";
+import { ACCENT } from "@/lib/words/colors";
 
 type Entry = { w: string; d: string };
 
@@ -11,7 +11,7 @@ const LINE = 48;
 const VISIBLE = 3; // lines per "window"
 
 // settings for caret in I-beam state.. possibly change to diff. later
-const CARET_H = 28;
+// const CARET_H = 28;
 const CARET_TOP = -3;
 const CAP_W = 6; // width of the I-beam serifs
 const CAP_HALF = CAP_W / 2;

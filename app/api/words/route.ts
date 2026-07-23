@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { sampleWords } from '@/lib/words';
  
 export const dynamic = 'force-dynamic';
- 
+
 export function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const parsed = Number.parseInt(searchParams.get('count') ?? '', 10);
@@ -11,4 +11,3 @@ export function GET(request: Request) {
 
     return NextResponse.json({ words: sampleWords(count) });
 }
- 
