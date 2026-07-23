@@ -1,4 +1,4 @@
-export default function Header(){
+export default function Navbar(){
     return(
         <header className="pt-14 pb-8 text-center">
             <div className="text-[11px] tracking-[0.42em] uppercase accent">
