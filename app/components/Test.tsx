@@ -373,8 +373,7 @@ export default function Page() {
             </p>
             <button
               onClick={() => void newTest()}
-              className="mt-6 px-5 py-2 text-[12px] uppercase tracking-[0.3em] border transition-colors"
-              style={{ color: ACCENT, borderColor: 'rgba(47,111,99,.4)' }}
+              className="mt-6 px-5 py-2 text-[12px] uppercase tracking-[0.3em] border transition-colors accent border-[rgba(47,111,99,.4)]"
             >
               retry
             </button>
@@ -383,7 +382,7 @@ export default function Page() {
           <>
             <div className="mb-4 flex items-end justify-between">
               <div className="flex items-baseline gap-2">
-                <span className="text-[34px] leading-none" style={{ color: ACCENT }}>
+                <span className="text-[34px] leading-none accent">
                   {status === 'running' ? secs : duration}
                 </span>
                 <span className="text-[11px] uppercase tracking-[0.3em] muted">
@@ -406,13 +405,13 @@ export default function Page() {
               <div className="mb-3 h-6 truncate">
                 {cur && (
                   <>
-                    <span className="text-[13px] uppercase tracking-[0.28em]" style={{ color: ACCENT }}>
+                    <span className="text-[13px] uppercase tracking-[0.28em] accent">
                       {cur.w}
                     </span>
                     <span className="mx-2">
                       —
                     </span>
-                    <span className="text-[15px] italic" style={{ color: '#5f6d5b' }}>
+                    <span className="text-[15px] text-[#5f6d5b] italic">
                       {cur.d}
                     </span>
                   </>
@@ -515,20 +514,17 @@ function ResultCard({ result, onAgain }: { result: Result; onAgain: () => void }
       <div className="mt-1 text-[12px] uppercase tracking-[0.3em] text-[#5f6d5b]">
         words per minute
       </div>
-
       <div className="mx-auto my-7 flex items-center justify-center gap-3">
         <span className="h-px w-16" />
         <span className="accent">&#10087;</span>
         <span className="h-px w-16" />
       </div>
-
       <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-4">
         {stat('accuracy', `${Math.round(result.acc)}%`)}
         {stat('raw', String(Math.round(result.raw)))}
         {stat('keystrokes', String(result.typed))}
         {stat('trial', `${result.time}s`)}
       </div>
-
       <button
         onClick={onAgain}
         className="border-[rgba(47,111,99,.4)] accent mt-9 px-5 py-2 text-[12px] uppercase tracking-[0.3em] border transition-colors"
