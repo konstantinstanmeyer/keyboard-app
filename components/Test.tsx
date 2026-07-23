@@ -2,7 +2,7 @@
 import { useEffect, useState, useMemo, useRef, useCallback, useLayoutEffect } from "react";
 import { Word } from "./Word";
 import { Result, State } from "@/lib/words/types";
-import { MUTED,  INK, ERROR, ACCENT } from "@/lib/words/colors";
+import { ACCENT } from "@/lib/words/colors";
 
 type Entry = { w: string; d: string };
 
@@ -11,7 +11,7 @@ const LINE = 48;
 const VISIBLE = 3; // lines per "window"
 
 // settings for caret in I-beam state.. possibly change to diff. later
-const CARET_H = 28;
+// const CARET_H = 28;
 const CARET_TOP = -3;
 const CAP_W = 6; // width of the I-beam serifs
 const CAP_HALF = CAP_W / 2;
@@ -313,12 +313,7 @@ export default function Page() {
 
   return (
     <main
-      className="min-h-screen w-full flex flex-col items-center"
-      style={{
-        color: INK,
-        backgroundImage:
-          'radial-gradient(120% 80% at 50% -10%, #edf0e6 0%, #e4e8dd 45%, #dbe0d2 100%)',
-      }}
+      className="min-h-screen w-full flex flex-col items-center ink"
     >
       <style>{`
         @keyframes rar-blink { 0%{opacity:1} 50%{opacity:0} 100%{opacity:1} }
@@ -340,35 +335,13 @@ export default function Page() {
           *{ transition:none !important }
         }
       `}</style>
-      <header className="pt-14 pb-8 text-center">
-        <div className="text-[11px] tracking-[0.42em] uppercase" style={{ color: ACCENT }}>
-          a typing copybook of
-        </div>
-        <h1
-          className="mt-2 text-[40px] leading-none tracking-[0.16em] uppercase"
-          style={{ fontWeight: 500 }}
-        >
-          LINOTYPE
-        </h1>
-        <div className="mt-3 flex items-center justify-center gap-3 muted">
-          <span className="h-px w-10" />
-          <span className="text-[13px] italic">
-            forgotten words, one keystroke at a time
-          </span>
-          <span className="h-px w-10" />
-        </div>
-      </header>
       <nav className="mb-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[13px]">
         <div className="flex items-center gap-1">
           {DURATIONS.map((d) => (
             <button
               key={d}
               onClick={() => void newTest(d)}
-              className="px-2.5 py-1 tracking-wide transition-colors border-b"
-              style={{
-                color: duration === d ? ACCENT : '#7c8a78',
-                borderColor: duration === d ? ACCENT : 'transparent',
-              }}
+              className={`px-2.5 py-1 tracking-wide transition-colors border-b ${duration === d ? "border-[#2f6f63]" : 'border-transparent'} ${duration === d ? "accent" : '#7c8a78'}`}
             >
               {d}s
             </button>
@@ -400,8 +373,7 @@ export default function Page() {
             </p>
             <button
               onClick={() => void newTest()}
-              className="mt-6 px-5 py-2 text-[12px] uppercase tracking-[0.3em] border transition-colors"
-              style={{ color: ACCENT, borderColor: 'rgba(47,111,99,.4)' }}
+              className="mt-6 px-5 py-2 text-[12px] uppercase tracking-[0.3em] border transition-colors accent border-[rgba(47,111,99,.4)]"
             >
               retry
             </button>
@@ -410,7 +382,7 @@ export default function Page() {
           <>
             <div className="mb-4 flex items-end justify-between">
               <div className="flex items-baseline gap-2">
-                <span className="text-[34px] leading-none" style={{ color: ACCENT }}>
+                <span className="text-[34px] leading-none accent">
                   {status === 'running' ? secs : duration}
                 </span>
                 <span className="text-[11px] uppercase tracking-[0.3em] muted">
@@ -433,13 +405,13 @@ export default function Page() {
               <div className="mb-3 h-6 truncate">
                 {cur && (
                   <>
-                    <span className="text-[13px] uppercase tracking-[0.28em]" style={{ color: ACCENT }}>
+                    <span className="text-[13px] uppercase tracking-[0.28em] accent">
                       {cur.w}
                     </span>
                     <span className="mx-2">
                       —
                     </span>
-                    <span className="text-[15px] italic" style={{ color: '#5f6d5b' }}>
+                    <span className="text-[15px] text-[#5f6d5b] italic">
                       {cur.d}
                     </span>
                   </>
@@ -542,20 +514,17 @@ function ResultCard({ result, onAgain }: { result: Result; onAgain: () => void }
       <div className="mt-1 text-[12px] uppercase tracking-[0.3em] text-[#5f6d5b]">
         words per minute
       </div>
-
       <div className="mx-auto my-7 flex items-center justify-center gap-3">
         <span className="h-px w-16" />
         <span className="accent">&#10087;</span>
         <span className="h-px w-16" />
       </div>
-
       <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-4">
         {stat('accuracy', `${Math.round(result.acc)}%`)}
         {stat('raw', String(Math.round(result.raw)))}
         {stat('keystrokes', String(result.typed))}
         {stat('trial', `${result.time}s`)}
       </div>
-
       <button
         onClick={onAgain}
         className="border-[rgba(47,111,99,.4)] accent mt-9 px-5 py-2 text-[12px] uppercase tracking-[0.3em] border transition-colors"

@@ -19,3 +19,37 @@ export type State = {
     input: string; 
     wordIndex: number;
 };
+
+export type SetWord = {
+    id: string;
+    word: string;
+    definition?: string;
+}
+
+// type of set the user will soon be able to use
+export type SetSource = 'builtin' | 'upload' | 'manual';
+
+export type WordSet = {
+  id: string;
+  name: string;
+  description?: string;
+  words: SetWord[];
+  source: SetSource;
+  readOnly?: boolean;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type WordSetSummary = {
+  id: string;
+  name: string;
+  description?: string;
+  count: number;
+  source: SetSource;
+  readOnly?: boolean;
+  createdAt: string;
+  updatedAt: string;
+};
+
+// for later word creation
+export type WordInput = { word: string; definition?: string };

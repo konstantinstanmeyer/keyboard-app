@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter, Newsreader } from 'next/font/google';
+import Navbar from "@/components/Navbar";
 
 const sans = Inter({
   subsets: ['latin'],
@@ -25,7 +26,10 @@ export default function RootLayout({
       lang="en"
       className={`h-full antialiased ${sans.variable} ${serif.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
