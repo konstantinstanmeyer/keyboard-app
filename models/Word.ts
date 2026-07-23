@@ -13,5 +13,5 @@ const wordSchema = new Schema({
     { timestamps: true }
 )
 
-const Word = models.Comment || mongoose.model("Comment", wordSchema);
+const Word = models.Word || mongoose.model("Comment", wordSchema);
 export default Word;
